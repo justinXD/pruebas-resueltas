@@ -1,6 +1,6 @@
 function splitPrefixSuffix(categories: string, k: number): number {
     let contador: number = 0;
-    let returnFinal: number = 0;
+    const returnFinal: number = 0;
 
     if (k == 0) {
         return returnFinal;
@@ -19,8 +19,7 @@ function splitPrefixSuffix(categories: string, k: number): number {
         let helperArrrayCategories: (string | undefined)[] = new Array(arrayOfCategories[0]);
         // 4.- creamos un nuevo array con todos los elementos de arrayOfCategories menos el primero, a este array le iremos quitando cada primer elemento mas adelante
         let helperCategories: (string | undefined)[] = arrayOfCategories.slice(1)
-        console.log('helperArrrayCategories antes del for: ', helperArrrayCategories)
-        console.log('helperCategories antes del for: ', helperCategories)
+
         for (let index = 0; index < arrayOfCategories.length - 2; index++) {
             let retorno = iterarArrays(helperArrrayCategories, helperCategories)
             if (retorno > k) {
@@ -28,10 +27,6 @@ function splitPrefixSuffix(categories: string, k: number): number {
             }
             helperArrrayCategories.push(helperCategories[0]);
             helperCategories.shift();
-
-            console.log('helperArrrayCategories despues del for: ', helperArrrayCategories)
-            console.log('helperCategories despues del for: ', helperCategories)
-            console.log('index: ', index)
         }
         return contador
     }
