@@ -7,5 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Justin Davila",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@azure/ai-language-text": "^1.1.0",
+    "dotenv": "^16.4.5"
+  }
 }
