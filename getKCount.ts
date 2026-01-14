@@ -68,6 +68,27 @@ function getKCount(s: number): number {
     return k
 }
 
+
+// version mejorada de la funcion
+function getKCount(s: number): number {
+  let count = 0;
+
+  for (let k = 1; (k * (k - 1)) / 2 < s; k++) {
+    const numerator = s - (k * (k - 1)) / 2;
+
+    if (numerator % k === 0) {
+      const a = numerator / k;
+      if (a > 0) count++;
+    }
+  }
+
+  return count;
+}
+console.time("timegetKCount")
+let response: number = getKCount(125)
+console.timeEnd("timegetKCount")
+console.log(response)
+  
 // function poblateArray(s: number): number[] {
 //     let counter: number = 1
 //     let arrNumber: number[] = []
