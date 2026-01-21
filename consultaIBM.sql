@@ -35,3 +35,21 @@ from (
 ) s
 group by s.qualification_name
 
+
+-- version optimizada
+
+SELECT
+    'Certification' AS qualification_type,
+    c.[Name] AS qualification_name,
+    COUNT(DISTINCT c.IDUsuario) AS total_unique_employees
+FROM Usuario.tblCertifications c
+GROUP BY c.[Name]
+
+UNION ALL
+
+SELECT
+    'Skill' AS qualification_type,
+    s.[Name] AS qualification_name,
+    COUNT(DISTINCT s.IDUsuario) AS total_unique_employees
+FROM Usuario.tblSkills s
+GROUP BY s.[Name];
