@@ -42,3 +42,32 @@ def circular_rotation(lst):
 # test = ["4","0:1","2:2","1:2","3:1"]
 # print(GasStation(test))
 print(GasStation(input()))
+
+
+## optimizacion o(n) de la funcion
+
+def GasStation(strArr):
+    n = int(strArr[0])
+    stations = []
+
+    for s in strArr[1:]:
+        gas, cost = map(int, s.split(":"))
+        stations.append((gas, cost))
+
+    total_tank = 0
+    current_tank = 0
+    start_index = 0
+
+    for i in range(n):
+        gas, cost = stations[i]
+        diff = gas - cost
+
+        total_tank += diff
+        current_tank += diff
+
+        if current_tank < 0:
+            start_index = i + 1
+            current_tank = 0
+
+    return str(start_index + 1) if total_tank >= 0 else "impossible"
+
